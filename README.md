@@ -6,7 +6,7 @@ This library handles low-level interactions with the underlying InnerTube API us
 
 ### Latest Release
 ```console
-go install "github.com/@wslyyy/youtube-go"
+go get github.com/wslyyy/youtube-go
 ```
 
 ## Usage

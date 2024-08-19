@@ -1,1 +1,1 @@
-module youtube-go
+module github.com/wslyyy/youtube-go
