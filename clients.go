@@ -16,7 +16,7 @@ type Adaptor interface {
 }
 
 // NewInnerTube creates a new InnerTube instance
-func NewInnerTube(clientName, clientVersion string, apiKey, userAgent, referer string, locale *Locale, auto bool) (*InnerTube, error) {
+func NewInnerTube(httpClient *http.Client, clientName, clientVersion string, apiKey, userAgent, referer string, locale *Locale, auto bool) (*InnerTube, error) {
 	if clientName == "" {
 		return nil, errors.New("Precondition failed: Missing client name")
 	}
@@ -39,7 +39,7 @@ func NewInnerTube(clientName, clientVersion string, apiKey, userAgent, referer s
 	}
 
 	return &InnerTube{
-		Adaptor: NewInnerTubeAdaptor(context, &http.Client{}),
+		Adaptor: NewInnerTubeAdaptor(context, httpClient),
 	}, nil
 }
 
