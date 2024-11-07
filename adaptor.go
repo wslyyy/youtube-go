@@ -52,18 +52,20 @@ func (ita *InnerTubeAdaptor) buildRequest(endpoint string, params map[string]str
 
 func (ita *InnerTubeAdaptor) request(endpoint string, params map[string]string, body map[string]interface{}) (*http.Response, error) {
 	req, err := ita.buildRequest(endpoint, params, body)
-	fmt.Println("Method: ", req.Method)
-	fmt.Println("URL: ", req.URL)
-	fmt.Println("Request Headers: ")
-	for k, v := range req.Header {
-		fmt.Println(fmt.Sprintf("%s: ", k), v)
-	}
-	//fmt.Println("Header: ", req.Header)
-	//fmt.Println("Cookies: ", req.Cookies())
-	fmt.Println("UserAgent: ", req.UserAgent())
-	//fmt.Println("Form: ", req.Form)
-	//fmt.Println("PostForm", req.PostForm)
-	fmt.Println("Body: ", req.Body)
+	/*
+		fmt.Println("Method: ", req.Method)
+		fmt.Println("URL: ", req.URL)
+		fmt.Println("Request Headers: ")
+		for k, v := range req.Header {
+			fmt.Println(fmt.Sprintf("%s: ", k), v)
+		}
+		//fmt.Println("Header: ", req.Header)
+		//fmt.Println("Cookies: ", req.Cookies())
+		fmt.Println("UserAgent: ", req.UserAgent())
+		//fmt.Println("Form: ", req.Form)
+		//fmt.Println("PostForm", req.PostForm)
+		fmt.Println("Body: ", req.Body)
+	*/
 	if err != nil {
 		return nil, err
 	}
