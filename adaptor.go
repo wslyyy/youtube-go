@@ -107,9 +107,11 @@ func (ita *InnerTubeAdaptor) Dispatch(endpoint string, params map[string]string,
 		return nil, err
 	}
 
-	visitorData, ok := responseData["responseContext"].(map[string]interface{})["visitorData"].(string)
-	if ok {
-		ita.context.XGoogVisitorId = visitorData
+	// 检查 responseData["responseContext"] 是否为 nil
+	if responseContext, ok := responseData["responseContext"].(map[string]interface{}); ok {
+		if visitorData, ok := responseContext["visitorData"].(string); ok {
+			ita.context.XGoogVisitorId = visitorData
+		}
 	}
 
 	if errorData, ok := responseData["error"]; ok {
